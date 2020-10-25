@@ -1,0 +1,141 @@
+using System;
+
+namespace А.Терентиев_4_пара_7_задание
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string[] signs = { "+", "-", "*", "/" };
+            int first = 0, second = 0, third = 0, fourth = 0, fifth = 0;
+            float ans = 0, tmp_1 = 0, tmp_2 = 0, tmp_3 = 0, tmp_4 = 0;
+            for (first = 0; first < 4; first++)  //Первый знак
+            {
+                if( first == 0)    // сложение
+                {
+                    ans = 1 + 2;
+                    tmp_1 = ans;
+                } else if (first == 1)   //вычитание
+                {
+                    ans = 1 - 2;
+                    tmp_1 = ans;
+                }
+                else if (first == 2)     // умножение
+                {
+                    ans = 1 * 2;
+                    tmp_1 = ans;
+                }
+                else if (first == 3)     // деление
+                {
+                    ans = 1 / 2;
+                    tmp_1 = ans;
+                }
+                for (second = 0;second <4; second++)  //второй знак 
+                {
+                    if (second == 0)    // сложение
+                    {
+                        ans = ans + 3;
+                        tmp_2 = ans;
+                    }
+                    else if (second == 1)    //вычитание
+                    {
+                        ans = ans - 3;
+                        tmp_2 = ans;
+                    }
+                    else if (second == 2)    // умножение
+                    {
+                        ans = ans * 3;
+                        tmp_2 = ans;
+                    }
+                    else if (second == 3)   // деление
+                    {
+                        ans = ans / 3;
+                        tmp_2 = ans;
+                    }
+                    for (third = 0; third < 4; third++)   //третий знак
+                    {
+                        if (third == 0)     // сложение
+                        {
+                            ans = ans + 4;
+                            tmp_3 = ans;
+                        }
+                        else if (third == 1)     //вычитание
+                        {
+                            ans = ans - 4;
+                            tmp_3 = ans;
+                        }
+                        else if (third == 2)   // умножение
+                        {
+                            ans = ans * 4;
+                            tmp_3 = ans;
+                        }
+                        else if (third == 3)    // деление
+                        {
+                            ans = ans / 4;
+                            tmp_3 = ans;
+                        }
+                        for (fourth = 0; fourth < 4; fourth++) // четвёртый знак
+                        {
+                            if (fourth == 0)     // сложение
+                            {
+                                ans = ans + 5;
+                                tmp_4 = ans;
+                            }
+                            else if (fourth == 1)    //вычитание
+                            {
+                                ans = ans - 5;
+                                tmp_4 = ans;
+                            }
+                            else if (fourth == 2)     // умножение
+                            {
+                                ans = ans * 5;
+                                tmp_4 = ans;
+                            }
+                            else if (fourth == 3)   // деление
+                            {
+                                ans = ans / 5;
+                                tmp_4 = ans;
+                            }
+                            for (fifth = 0; fifth < 4; fifth++)   //Пятый знак
+                            {
+                                if (fifth == 0)     // сложение
+                                    ans = ans + 6;
+                                else if (fifth == 1)    //вычитание
+                                    ans = ans - 6;
+                                else if (fifth == 2)    // умножение
+                                    ans = ans * 6;
+                                else if (fifth == 3)   // деление
+                                    ans = ans / 6;
+                                if (ans == 35)
+                                    break;
+                                else ans = tmp_4;
+                            }
+                            if (ans == 35)
+                                break;
+                            else ans = tmp_3;
+                        }
+                        if (ans == 35)
+                            break;
+                        else ans = tmp_2;
+                    }
+                    if (ans == 35)
+                        break;
+                    else ans = tmp_1;
+                }
+                if (ans == 35)
+                    break;
+                else ans = 0;
+            }
+            Console.Write("Первый знак - ");
+            Console.WriteLine(signs[first]);
+            Console.Write("Второй знак - ");
+            Console.WriteLine(signs[second]);
+            Console.Write("Третий знак - ");
+            Console.WriteLine(signs[third]);
+            Console.Write("Четвёртый знак - ");
+            Console.WriteLine(signs[fourth]);
+            Console.Write("Пятый знак - ");
+            Console.WriteLine(signs[fifth]);
+        }
+    }
+}
