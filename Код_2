@@ -1,0 +1,56 @@
+#include<iostream>,<cmath>
+
+using namespace std;
+
+int main(){
+int xd,yd,x1,y1,x2,y2,t,d;
+double b,c,y;
+cin >> x1>>y1>>x2>>y2;
+t=0;
+xd=x2-x1;
+yd=y2-y1;
+if (xd==0){
+    cout<<abs(yd)+1;
+    return 0;
+}
+if (yd==0){
+    cout<<abs(xd)+1;
+    return 0;
+}
+if (abs(xd)<abs(yd)){
+    int q;
+    if (x1<x2) {
+            for(int i=x1;i<=x2;i++){
+            d= ((i-x1)*(y2-y1))% (x2-x1) ;
+            if (d==0)
+                t++;
+            }}
+    else for(int i=x2;i<=x1;i++){
+
+            d= ((i-x1)*(y2-y1))% (x2-x1) ;
+            if (d==0)
+                t++;
+            }
+
+    }
+else{
+    if (y1<y2 )
+    {
+        for(int i=y1;i<=y2;i++){
+            d= ((i-y1)*(x2-x1))% (y2-y1) ;
+            if (d==0)
+            t++;
+        }
+    }
+    else {
+        for(int i=y2;i<=y1;i++){
+            d= ((i-y1)*(x2-x1))% (y2-y1) ;
+            if (d==0)
+            t++;
+        }}
+
+
+}
+cout << t;
+return 0;
+}
