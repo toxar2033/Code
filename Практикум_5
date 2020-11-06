@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{   long long length, width,answer=0,dif;
+    cin >> length >> width;
+    if (length!=width){
+    while ((length!=width)&(length!=0)&(width!=0)){
+            if (length>width){
+                    dif=length/width;
+                length-=dif*width;
+                answer+=dif;
+            } else {
+                dif=width/length;
+                width-=dif*length;
+                answer+=dif;
+            }
+        }
+        cout << answer << endl;
+    } else cout << "1";
+    return 0;
+}
