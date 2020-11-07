@@ -1,0 +1,26 @@
+using System;
+
+namespace Var_28
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int answer = 0, k=1, n, fact;
+            for (n = 1; n < 5; n++)
+            {
+                k = k * n;
+                answer += k;
+            }
+            for (n=5; n < 13; n++)
+            {
+                k = k * n;
+                answer += k;
+                Console.Write("Значение переменной: ");
+                Console.WriteLine(Convert.ToString(k));
+                Console.Write("Значение функции: ");
+                Console.WriteLine(Convert.ToString(answer));
+            }
+        }
+    }
+}
