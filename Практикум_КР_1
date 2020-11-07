@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{   int maxi,floor,lift,stop=1,answer,stop_1,stop_2;
+    cin >> maxi >> floor >> lift;
+    while (stop<floor)
+        stop+=lift;
+    if (stop>maxi){
+        stop-=lift;
+        answer=(floor-stop)*200;
+    } else {
+    stop_1=stop;
+    stop_2=stop-lift;
+    if (stop_1==floor){
+        cout << "0";
+        return 0;
+    }
+    if (stop_1-floor<2*(floor-stop_2))
+        answer=(stop_1-floor)*100;
+    else answer=(floor-stop_2)*200;
+    }
+    cout << answer << endl;
+    return 0;
+}
