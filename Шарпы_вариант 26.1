@@ -12,38 +12,42 @@ namespace Var._26._1
             for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
+                if (a == true)
+                        Console.Write("1");
+                    else Console.Write("0");
+                    Console.Write(" ");
                 b = second[i];
+                if (b == true)
+                        Console.Write("1");
+                    else Console.Write("0");
+                    Console.WriteLine(" ");
                 if (i == 0) 
                 {
                     ans_1 = a & !b | !(a & b);       //сама функция
                     if (ans_1 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }   
                 else if (i == 1)
                 {
                     ans_2 = a & !b | !(a & b);       //сама функция
                     if (ans_2 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 2)
                 {
                     ans_3 = a & !b | !(a & b);       //сама функция
                     if (ans_3 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 3)
                 {
                     ans_4 = a & !b | !(a & b);       //сама функция
                     if (ans_4 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
             }
             if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
@@ -54,38 +58,42 @@ namespace Var._26._1
             for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
+                if (a == true)
+                        Console.Write("1");               
+                else Console.Write("0");
+                Console.Write(" ");
                 b = second[i];
+                if (b == true)
+                        Console.Write("1");
+                else Console.Write("0");
+               Console.WriteLine(" ");
                 if (i == 0)
                 {
                     ans_1 = !((!a|b)&!a&b);       //сама функция
                     if (ans_1 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 1)
                 {
                     ans_2 = !((!a | b) & !a & b);       //сама функция
                     if (ans_2 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 2)
                 {
                     ans_3 = !((!a | b) & !a & b);       //сама функция
                     if (ans_3 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 3)
                 {
                     ans_4 = !((!a | b) & !a & b);       //сама функция
                     if (ans_4 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
             }
             if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
@@ -95,38 +103,42 @@ namespace Var._26._1
             for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
+                if (a == true)
+                        Console.Write("1");
+                else Console.Write("0");
+                    Console.Write(" ");
                 b = second[i];
+                if (b == true)
+                        Console.Write("1");
+                else Console.Write("0");
+                    Console.WriteLine(" ");
                 if (i == 0)
                 {
                     ans_1 = !(a|b)|!b;       //сама функция
                     if (ans_1 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 1)
                 {
                     ans_2 = !(a | b) | !b;       //сама функция
                     if (ans_2 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 2)
                 {
                     ans_3 = !(a | b) | !b;       //сама функция
                     if (ans_3 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
                 else if (i == 3)
                 {
                     ans_4 = !(a | b) | !b;       //сама функция
                     if (ans_4 == true)
-                        Console.Write("1");
-                    else Console.Write("0");
-                    Console.Write(" ");
+                        Console.WriteLine("1");
+                    else Console.WriteLine("0");
                 }
             }
             if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
