@@ -1,174 +1,135 @@
 using System;
 
-namespace var_26
+namespace Var._26._1
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int a, b,ans_1=0,ans_2=0,ans_3=0,ans_4=0,part_1,part_2,part_3;
-            int[] first = { 0, 0, 1, 1 };
-            int[] second = { 0, 1, 0, 1 };
-            for (int i = 0; i < 4; i++)
+            bool[] first = { false, true, false, true };
+            bool[] second = { false, false, true, true };
+            bool a = false, b = false, ans_1 = false, ans_2 = false, ans_3 = false, ans_4 = false;
+            for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
                 b = second[i];
-                part_1 = a * b; 
-                if (part_1 == 1)   // не a*b
-                    part_1 = 0;
-                else part_1 = 1;
-                if (b== 1)        // не b
-                    b = 0;
-                else b = 1;
-                part_2 = a * b;
-
-                if (i == 0)
+                if (i == 0) 
                 {
-                    if (part_1 + part_2 > 0)              //сложение a*не(b) и не(a*b)
-                        ans_1 = 1;
-                    else ans_1 = 0;
-                    Console.Write(Convert.ToString(ans_1));
+                    ans_1 = a & !b | !(a & b);       //сама функция
+                    if (ans_1 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
+                    Console.Write(" ");
+                }   
+                else if (i == 1)
+                {
+                    ans_2 = a & !b | !(a & b);       //сама функция
+                    if (ans_2 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 1)
+                else if (i == 2)
                 {
-                    if (part_1 + part_2 > 0)              //сложение a*не(b) и не(a*b) 
-                        ans_2 = 1;
-                    else ans_2 = 0;
-                    Console.Write(Convert.ToString(ans_2));
+                    ans_3 = a & !b | !(a & b);       //сама функция
+                    if (ans_3 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 2)
+                else if (i == 3)
                 {
-                    if (part_1 + part_2 > 0)              //сложение a*не(b) и не(a*b) 
-                        ans_3 = 1;
-                    else ans_3 = 0;
-                    Console.Write(Convert.ToString(ans_3));
-                    Console.Write(" ");
-                }
-
-                if (i == 3)
-                {
-                    if (part_1 + part_2 > 0)              //сложение a*не(b) и не(a*b)
-                        ans_4 = 1;
-                    else ans_4 = 0;
-                    Console.Write(Convert.ToString(ans_4));
+                    ans_4 = a & !b | !(a & b);       //сама функция
+                    if (ans_4 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
             }
-
-            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 == ans_4))       //сравнение
+            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
                 Console.WriteLine("Тождественны");
             else Console.WriteLine("Не тождественны");
 
 
-
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
                 b = second[i];
-                if (a == 1)        // не a
-                    a = 0;
-                else a = 1;
-                if (a + b > 0)       //сложение a+b
-                    part_1 = 1;
-                else part_1 = 0;
-                part_2 = a * b;
-                part_3 = part_1 * part_2;
-
                 if (i == 0)
                 {
-                    if (part_3 == 0)        // не (не(a)+b)*не(b)*a
-                        ans_1 = 1;
-                    else ans_1 = 0;
-                    Console.Write(Convert.ToString(ans_1));
+                    ans_1 = !((!a|b)&!a&b);       //сама функция
+                    if (ans_1 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 1)
+                else if (i == 1)
                 {
-                    if (part_3 == 0)        // не (не(a)+b)*не(b)*a
-                        ans_2 = 1;
-                    else ans_2 = 0;
-                    Console.Write(Convert.ToString(ans_2));
+                    ans_2 = !((!a | b) & !a & b);       //сама функция
+                    if (ans_2 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 2)
+                else if (i == 2)
                 {
-                    if (part_3 == 0)        // не (не(a)+b)*не(b)*a
-                        ans_3 = 1;
-                    else ans_3 = 0;
-                    Console.Write(Convert.ToString(ans_3));
+                    ans_3 = !((!a | b) & !a & b);       //сама функция
+                    if (ans_3 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 3)
+                else if (i == 3)
                 {
-                    if (part_3 == 0)        // не (не(a)+b)*не(b)*a
-                        ans_4 = 1;
-                    else ans_4 = 0;
-                    Console.Write(Convert.ToString(ans_4));
+                    ans_4 = !((!a | b) & !a & b);       //сама функция
+                    if (ans_4 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
             }
-            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 == ans_4))       //сравнение
+            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
                 Console.WriteLine("Тождественны");
             else Console.WriteLine("Не тождественны");
 
-
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)           //цикл для прогона всех 4-х ситуаций
             {
                 a = first[i];
                 b = second[i];
-                if (a + b > 0)
-                    part_1 = 1;
-                else part_1 = 0;
-                if (part_1 == 1)        // не a+b
-                    part_1 = 0;
-                else part_1 = 1;
-                if (b == 1)        // не b
-                    b = 0;
-                else b = 1;
                 if (i == 0)
                 {
-                    if (part_1+b > 0)           // сложение не(a+b)+ не (b)
-                        ans_1 = 1;
-                    else ans_1 = 0;
-                    Console.Write(Convert.ToString(ans_1));
+                    ans_1 = !(a|b)|!b;       //сама функция
+                    if (ans_1 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 1)
+                else if (i == 1)
                 {
-                    if (part_1+b > 0)           // сложение не(a+b)+ не (b)
-                        ans_2 = 1;
-                    else ans_2 = 0;
-                    Console.Write(Convert.ToString(ans_2));
+                    ans_2 = !(a | b) | !b;       //сама функция
+                    if (ans_2 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 2)
+                else if (i == 2)
                 {
-                    if (part_1+b > 0)           // сложение не(a+b)+ не (b)
-                        ans_3 = 1;
-                    else ans_3 = 0;
-                    Console.Write(Convert.ToString(ans_3));
+                    ans_3 = !(a | b) | !b;       //сама функция
+                    if (ans_3 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
-
-                if (i == 3)
+                else if (i == 3)
                 {
-                    if (part_1+b > 0)           // сложение не(a+b)+ не (b)
-                        ans_4 = 1;
-                    else ans_4 = 0;
-                    Console.Write(Convert.ToString(ans_4));
+                    ans_4 = !(a | b) | !b;       //сама функция
+                    if (ans_4 == true)
+                        Console.Write("1");
+                    else Console.Write("0");
                     Console.Write(" ");
                 }
             }
-            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 == ans_4))       //сравнение
+            if ((ans_1 == ans_2) & (ans_1 == ans_3) & (ans_1 & ans_4))             //Сравнение результатов
                 Console.WriteLine("Тождественны");
             else Console.WriteLine("Не тождественны");
         }
