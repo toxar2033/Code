@@ -1,0 +1,47 @@
+using System;
+
+namespace Var._26._2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool[] first = { false, true, false, true };
+            bool[] second = { false, false, true, true };
+            bool a = false, b = false, Y_1 = false, Y_2 = false, Y_3 = false;
+            for (int i = 0; i < 4; i++)
+            {
+                a = first[i];
+                if (a==true)
+                Console.Write("1");
+                else Console.Write("0");
+                Console.Write(" ");
+                b = second[i];
+                if (b == true)
+                    Console.Write("1");
+                else Console.Write("0");
+                Console.WriteLine(" ");
+                Y_1 = a & !b | !(a & b);
+                if (Y_1 == true)
+                    Console.Write("1");
+                else Console.Write("0");
+                Console.Write(" ");
+                Y_2 = !((!a | b) & !a & b);
+                if (Y_2 == true)
+                    Console.Write("1");
+                else Console.Write("0");
+                Console.Write(" ");
+                Y_3 = !(a | b) | !b;
+                if (Y_1 == true)
+                    Console.Write("1");
+                else Console.Write("0");
+                Console.Write(" ");
+                if ((Y_1 == Y_2) & (Y_1 == Y_3))
+                    Console.WriteLine("Тождественны");
+                else Console.WriteLine("Не тождественны");
+
+
+            }
+        }
+    }
+}
