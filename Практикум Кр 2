@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{   long long K,ans_min=0,ans_max=0;
+    cin >> K;
+    long long apples[K];
+    for(int i = 0 ;i < K; i++)
+    cin >> apples[i];
+    for (int i = K-1 ;i >= 0; i--){
+    ans_min=2*(ans_min + apples[i]);
+    if (ans_min-1>=0)
+    ans_min--;
+        ans_max=2*(ans_max + apples[i])+1;
+        
+    }
+    cout << ans_min << endl;
+    cout << ans_max << endl;
+    return 0;
+}
