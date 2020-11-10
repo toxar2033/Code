@@ -1,0 +1,25 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main()
+{   int N,M,j,b;
+    int an,bn;
+    cin >> N >> M;
+    int a[N];
+    for (int i = 0; i < N;i++){
+        cin >> j;
+        a[i]=j;
+    }
+    for (int i = 0; i < M;i++){
+        cin >> b;
+        auto an = lower_bound(a,a+N,b)-a;
+        auto bn = upper_bound(a,a+N,b)-a;
+        an++;
+        if ((an<0)|(bn<0)|(an>bn))
+            cout << "0" << endl;
+        else
+        cout << an << " " << bn << endl;
+    }
+    return 0;
+}
