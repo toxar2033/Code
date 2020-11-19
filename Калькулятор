@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+long long func(long long a, long long answer){
+    if( a > 1 ){
+            if (answer > 29)
+            return 99999;
+            else{
+            answer++;
+            if ((a % 3 == 0)&(a % 2 == 0))
+                return min(func(a/3,answer),min(func(a/2,answer),func(a-1,answer)));
+            else if (a % 3 == 0)
+                return min(func(a/3,answer),func(a-1,answer));
+            else if (a % 2 == 0)
+                return min(func(a/2,answer),func(a-1,answer));
+            else return func(a-1,answer);
+        }
+        }else return answer;
+}
+int main()
+{   long long Num, ans = 0;
+    cin >> Num;
+    ans = func(Num,ans);
+    cout << ans;
+    return 0;
+}
