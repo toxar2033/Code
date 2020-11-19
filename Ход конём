@@ -1,0 +1,17 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main()
+{ int N,M;
+    vector<vector<int>> a(51, vector<int>(51,0));
+    cin >> N >> M;
+    a[1][1] = 1;
+    for (int i = 2; i <= N; i++){
+        for (int j = 2; j <= M; j++){
+            a[i][j] = a[i - 2][j - 1] + a[i-1][j - 2];
+        }
+    }
+    cout << a[N][M];
+    return 0;
+}
