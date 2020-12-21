@@ -1,0 +1,76 @@
+static void Main(string[] args)
+        {
+            bool rep = true, ch_1 = false, ch_2 = false, ch_3 = false;
+            int n;
+            string inp = "";
+            while(rep == true)
+            {
+                Console.WriteLine("Введите целое число для размера массива");
+                while (ch_1 == false)
+                {
+                    inp = Console.ReadLine();
+                    if (Convert.ToDouble(inp) % 1 == 0)
+                        ch_1 = true;
+                    else Console.WriteLine("Вы ввели не целое число. Повторите ввод");
+                }
+
+                ch_1 = false;
+                n = Convert.ToInt32(inp);
+                int[,] a;
+                a = new int[n, n];
+
+                for ( int i = 0; i < n; i++)
+                {
+                    a[i, 0] = i + 1;
+                }
+
+                for(int i = 0; i < n; i++)
+                {
+                    for(int j = 1; j < n; j++)
+                    {
+                        if((a[i,j - 1] == 1)&&(ch_2 == false))
+                        {
+                            ch_2 = true;
+                        } 
+                        if (ch_2 == false)
+                        {
+                            a[i, j] = a[i, j - 1] - 1;
+                        } else
+                        {
+                            a[i, j] = a[i, j - 1] + 1;
+                        }
+                    }
+                    ch_2 = false;
+                }
+
+                Console.WriteLine("Получившаяся матрица");
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        Console.Write(Convert.ToString(a[i, j]));
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine();
+                }
+
+                while(ch_3 != true)
+                {
+                    Console.WriteLine("Вы хотите повторить программу? Вводить Да / Нет ");
+                    string b = Console.ReadLine();
+                    if (b == "Да")
+                    {
+                        ch_3 = true;
+                    }
+                    else if (b == "Нет")
+                    {
+                        ch_3 = true;
+                        rep = false;
+                    }
+                    else Console.WriteLine("Неверный ввод. Повторите попытку");
+                }
+
+                ch_3 = false;
+                Console.WriteLine();
+            }
+        }
