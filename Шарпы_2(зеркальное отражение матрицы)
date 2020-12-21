@@ -1,0 +1,97 @@
+using System;
+
+namespace Classwork
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool rep = true, ch_1 = false, ch_2 = false;
+            string a = "", b = "";
+            while (rep == true)
+            {
+                Console.WriteLine("Введите два числа с нужным колличеством 'столбик' 'строка' (обязательно целые)(и пожалуйста через Enter)");
+                while (ch_1 == false)
+                {
+                    a = Console.ReadLine();
+                    b = Console.ReadLine();
+                    if ((Convert.ToDouble(a) % 1 == 0)&&(Convert.ToDouble(b) % 1 == 0))
+                    {
+                        ch_1 = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введены не верные данные повторите ввод");
+                    }
+                }
+                ch_1 = false;
+                int colon = Convert.ToInt32(a);
+                int line = Convert.ToInt32(b);
+
+                int[,] z;
+                z = new int[line, colon];
+                Random rnd = new Random();
+                for( int i = 0; i < line; i++)
+                {
+                    for( int j = 0; j < colon; j++)
+                    {
+                        z[i, j] = rnd.Next(1000);
+                    }
+                }
+
+                Console.WriteLine("Исходная матрица");
+                for (int i = 0; i < line; i++, Console.WriteLine())
+                {
+                    for ( int j = 0; j < colon; j++)
+                    {
+                        Console.Write(Convert.ToString(z[i, j]));
+                        Console.Write(" ");
+                    }
+                }
+
+            
+                int x = 0;
+
+                for (int j = 0; j < line/2; j++)
+                {
+                    for (int i = 0; i < colon; i++)
+                    {
+                        x = z[j, i];
+                        z[j, i] = z[line - j - 1, i];
+                        z[line - j - 1, i] = x;
+                    }
+                }
+
+                Console.WriteLine();
+
+                Console.WriteLine("Получившаяся матрица");
+                for (int i = 0; i < line; i++, Console.WriteLine())
+                {
+                    for (int j = 0; j < colon; j++)
+                    {
+                        Console.Write(Convert.ToString(z[i, j]));
+                        Console.Write(" ");
+                    }
+                }
+
+                while( ch_2 == false)
+                {
+                    Console.WriteLine("Вы хотите повторить? Да/Нет?");
+                    a = Console.ReadLine();
+                    if (a == "Да")
+                    {
+                        ch_2 = true;
+                    }
+                    else if (a == "Нет")
+                    {
+                        ch_2 = true;
+                        rep = false;
+                    }
+                    else Console.WriteLine("Неправильный ввод, повторите попытку.");
+                }
+                ch_2 = false;
+            }
+            Console.WriteLine("Hello World!");
+        }
+    }
+}
