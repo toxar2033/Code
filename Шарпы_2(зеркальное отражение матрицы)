@@ -91,7 +91,6 @@ namespace Classwork
                 }
                 ch_2 = false;
             }
-            Console.WriteLine("Hello World!");
         }
     }
 }
