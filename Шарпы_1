@@ -1,4 +1,10 @@
-static void Main(string[] args)
+using System;
+
+namespace homework_massive
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
             bool rep = true, ch_1 = false, ch_2 = false, ch_3 = false;
             int n;
@@ -74,3 +80,5 @@ static void Main(string[] args)
                 Console.WriteLine();
             }
         }
+    }
+}
