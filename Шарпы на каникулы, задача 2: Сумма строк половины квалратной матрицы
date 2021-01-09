@@ -1,0 +1,74 @@
+using System;
+
+namespace task_2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool repet = true, check_1 = false, check_2 = false;
+            string a;
+            int n = 0, sum = 0;
+            int[,] task;
+            while (repet == true)
+            {
+                Console.WriteLine("Введите размер матрицы");
+                while(check_1 != true)
+                {
+                    a = Console.ReadLine();
+                    if (Convert.ToDouble(a) % 1 == 0)
+                    {
+                        n = Convert.ToInt32(a);
+                        check_1 = true;
+                    }
+                    else
+                        Console.WriteLine("Неправильный ввод. Введите целое число");
+                }
+                check_1 = false;
+
+                task = new int[n, n];
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < n; j++)
+                    {
+                        Random random = new Random();
+                        task[i, j] = random.Next(1, 11);
+                        Console.Write(task[i, j]);
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine();
+                }
+
+                for( int j = 0; j < n; j++)
+                {
+                    for ( int i = n - 1 - j; i < n; i++)
+                    {
+                        sum = sum + task[j, i];
+                    }
+                    Console.Write("Сумма строки ");
+                    Console.Write(j + 1);
+                    Console.Write(" равна: ");
+                    Console.Write(sum);
+                    Console.WriteLine();
+                    sum = 0;
+                }
+
+                Console.WriteLine("Вы хотите повторить? Да/Нет");
+                while(check_2 != true)
+                {
+                    a = Console.ReadLine();
+                    if (a == "Да")
+                        check_2 = true;
+                    else if (a == "Нет")
+                    {
+                        check_2 = true;
+                        repet = false;
+                    }
+                    else
+                        Console.WriteLine("Неверный ввод. Повторите попытку");
+                }
+                check_2 = false;
+            }
+        }
+    }
+}
