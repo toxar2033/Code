@@ -1,0 +1,84 @@
+using System;
+
+namespace task_3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool repet = true, check_1 = false, check_2 = false;
+            string a;
+            int n = 0;
+            int[,] task;
+            
+                while (repet == true)
+            {
+
+                Console.WriteLine("Введите нужный размер матрицы");
+                while(check_1 != true)
+                {
+                    a = Console.ReadLine();
+                    if (Convert.ToDouble(a) % 1 == 0)
+                    {
+                        check_1 = true;
+                        n = Convert.ToInt32(a);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введите целое число");
+                    }
+                }
+                check_1 = false;
+                n = n + 2;
+
+                task = new int[n, n ];
+                for (int i = 1; i < n - 1; i++)
+                {
+                    for (int j = 1; j < n - 1; j++)
+                    {
+                        Random random = new Random();
+                        task[i, j] = random.Next(1, 11);
+                        Console.Write(Convert.ToString(task[i, j]));
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine();
+                }
+
+                for (int i = 1; i < n - 1; i++)
+                {
+                    for( int j = 1; j < n - 1; j++)
+                    {
+                        if ((task[j, i] > task[j - 1, i]) && (task[i, j] > task[j + 1, i]) && (task[j, i] > task[j, i - 1]) && (task[j, i] > task[j, i + 1]))
+                        {
+                            Console.Write(task[j, i]);
+                            Console.Write("       Индекс данного элемента: строка: ");
+                            Console.Write(j);
+                            Console.Write(" столбец: ");
+                            Console.Write(i);
+                            Console.WriteLine();
+                        }
+                    }
+                }
+
+                Console.WriteLine("Вы хотите продолжить? Да/Нет");
+                while(check_2 != true)
+                {
+                    a = Console.ReadLine();
+                    if (a == "Да")
+                        check_2 = true;
+                    else if (a == "Нет")
+                    {
+                        repet = false;
+                        check_2 = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Неверный ввод. Повторите попытку");
+                    }
+
+                }
+                check_2 = false;
+            }
+        }
+    }
+}
