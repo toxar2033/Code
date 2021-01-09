@@ -1,0 +1,114 @@
+using System;
+
+namespace task_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            bool repet = true, check = false;
+            string a;
+            int n = 0, m = 0, co = 0;
+            char[,] task;
+            string letters = "ABCDEFGHIJKLMN";
+            while (repet == true)
+            {
+                Console.WriteLine("Введите колличество строк (не более 4):");
+                while(check != true)
+                {
+                    a = Console.ReadLine();
+                    if ((Convert.ToDouble(a) % 1 == 0) && (Convert.ToDouble(a) <= 4))
+                    {
+                        n = Convert.ToInt32(a);
+                        check = true;
+                    }
+                    else if (Convert.ToDouble(a) % 1 != 0)
+                        Console.WriteLine("Вы ввели дробное число. Введите целое число");
+                    else
+                        Console.WriteLine("Вы ввели число, которое больше 4");
+                }
+                check = false;
+
+                Console.WriteLine("Введите колличество столбцов (не более 5):");
+                while (check != true)
+                {
+                    a = Console.ReadLine();
+                    if ((Convert.ToDouble(a) % 1 == 0) && (Convert.ToDouble(a) <= 5))
+                    {
+                        m = Convert.ToInt32(a);
+                        check = true;
+                    }
+                    else if (Convert.ToDouble(a) % 1 != 0)
+                        Console.WriteLine("Вы ввели дробное число. Введите целое число");
+                    else
+                        Console.WriteLine("Вы ввели число, которое больше 5");
+                }
+                check = false;
+                Console.WriteLine();
+
+                task = new char[n, m];
+                for( int i = 1; i < n - 1; i++)
+                {
+                    for ( int j = 1; j < m - 1; j++)
+                    {
+                        task[i, j] = '9';
+                    }
+                }
+
+                for( int j = 0; j < m; j++)
+                {
+                    task[n - 1, j] = letters[co];
+                    co = co + 1;
+                }
+
+                for (int i = n - 2; i >= 0; i--)
+                {
+                    task[i, m - 1] = letters[co];
+                    co = co + 1;
+                }
+
+                if (n != 1)
+                {
+                    for (int j = m - 2; j >= 0; j--)
+                    {
+                        task[0, j] = letters[co];
+                        co = co + 1;
+                    }
+                }
+
+                for (int i = 1; i < n - 1; i++)
+                {
+                    task[i, 0] = letters[co];
+                    co = co + 1;
+                }
+
+                for (int i = 0; i < n; i++)
+                {
+                    for (int j = 0; j < m; j++)
+                    {
+                        Console.Write(task[i, j]);
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+                co = 0;
+
+                Console.WriteLine("Вы хотите повторить? Да/Нет");
+                while(check != true)
+                {
+                    a = Console.ReadLine();
+                    if (a == "Да")
+                        check = true;
+                    else if (a == "Нет")
+                    {
+                        repet = false;
+                        check = true;
+                    }
+                    else Console.WriteLine("Неправильный ввод. Повторите попытку");
+                }
+                check = false;
+            }
+        }
+    }
+}
