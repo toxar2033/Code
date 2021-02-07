@@ -1,0 +1,170 @@
+using System;
+
+namespace task_3_peregrusheniye
+{
+    class Program
+    {
+
+        static void cr(int[] f, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Random b = new Random();
+                f[i] = b.Next(0, 100);
+                Console.Write(f[i]);
+                Console.Write(" ");
+            }
+        }
+
+        static void cr(double[] f,int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Random b = new Random();
+                f[i] = b.NextDouble() * (0 - 10) + 10;
+                Console.Write(f[i]);
+                Console.Write(" ");
+            }
+        }
+
+        static void cr(int[,] f, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Random b = new Random();
+                    f[i, j] = b.Next(0, 100);
+                    Console.Write(f[i, j]);
+                    Console.Write(" ");
+                }
+                Console.WriteLine("");
+            }
+        }
+
+        static void cr(double[,]f, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    Random b = new Random();
+                    f[i, j] = b.NextDouble() * (0 - 10) + 10;
+                    Console.Write(f[i, j]);
+                    Console.Write(" ");
+                }
+                Console.WriteLine("");
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            string inp = "";
+            bool rep = true, check = false;
+            int n = 0, type = 0, type_2 = 0;
+
+
+            while (rep == true)
+            {
+                Console.WriteLine("Введите желаемый тип массива, 1 - одномерный, 2 - двумерный");
+                while(check != true)
+                {
+                    inp = Console.ReadLine();
+                    if((inp !="1")&(inp != "2"))
+                    {
+                        Console.WriteLine("Неверный ввод");
+                    }
+                    else
+                    {
+                        check = true;
+                        type = Convert.ToInt32(inp);
+                    }
+                }
+                check = false;
+
+                Console.WriteLine("Введите желаемый тип эллементов, 1 - целыеб 2 - дробные");
+                while (check != true)
+                {
+                    inp = Console.ReadLine();
+                    if ((inp != "1") & (inp != "2"))
+                    {
+                        Console.WriteLine("Неверный ввод");
+                    }
+                    else
+                    {
+                        check = true;
+                        type_2=Convert.ToInt32(inp);
+                    }
+                }
+                check = false;
+
+                Console.WriteLine("Введите желаемый размер массива (матрицу я сделаю квадратную)");
+                while (check != true)
+                {
+                    inp = Console.ReadLine();
+                    if(int.TryParse(inp, out n))
+                    {
+                        check = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Введите целое число");
+                    }
+                }
+                check = false;
+
+                if (type == 1)
+                {
+                    if (type_2 == 1)
+                    {
+                        int[] task;
+                        task = new int[n];
+                        cr(task, n);
+
+                    }
+                    else
+                    {
+                        double[] task;
+                        task = new double[n];
+                        cr(task, n);
+                    }
+                }
+                else
+                {
+                    if (type_2 == 1)
+                    {
+                        int[,]  task;
+                        task = new int[n, n];
+                        cr(task, n);
+
+                    }
+                    else
+                    {
+                        double[,] task;
+                        task = new double[n, n];
+                        cr(task, n);
+                    }
+                }
+                Console.WriteLine();
+
+                Console.WriteLine("Вы хотите повторить?");
+                while( check != true)
+                {
+                    inp = Console.ReadLine();
+                    if (inp == "Да")
+                    {
+                        check = true;
+                    }
+                    else
+                    if (inp == "Нет")
+                    {
+                        check = true;
+                        rep = false;
+                    }
+                    else Console.WriteLine("Введите Да или Нет");
+                }
+                check = false;
+            }
+        }
+    }
+}
