@@ -1,0 +1,26 @@
+from numpy import array
+
+def mean_by_gender(grades, genders):
+    b = 0
+    b_c = 0
+    g = 0
+    g_c = 0
+    for i in range(0, len(grades)):
+        if genders[i] == 'male':
+            b = b + grades[i]
+            b_c = b_c + 1
+        else: 
+            g = g + grades[i]
+            g_c = g_c + 1
+    ans = {'male': b/b_c, 'females': g/g_c}
+    print(ans)
+    
+    
+
+inp = input()
+a = inp.split()
+gr = array([int(x) for x in a])
+inp = input()
+gen = inp.split()
+gen = array(gen)
+mean_by_gender(gr, gen)
