@@ -1,0 +1,21 @@
+inp = open("input.txt", "r", encoding='utf8').read()
+task = dict([])
+a = inp.split('\n')
+count = 0
+maxi_1 = a[0]
+maxi_2 = a[0]
+for word in a:
+    if word != "":
+        task[word] = task.get(word, 0) + 1
+        count = count + 1
+
+for word in task.keys():
+    if task[maxi_1] < task[word]:
+        maxi_1 = word
+    elif task[maxi_2] < task[word]:
+        maxi_2 = word
+if task[maxi_1] > count/2:
+    print(maxi_1, end="")
+else:
+    print(maxi_1)
+    print(maxi_2, end="")
