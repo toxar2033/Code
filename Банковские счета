@@ -1,0 +1,19 @@
+inp = open('input.txt', 'r').read()
+a = inp.split('\n')
+bank = dict([])
+for line in a:
+    if line != "":
+        temp = line.split()
+        if temp[0] == "INCOME":
+            for tip in bank:
+                if bank[tip] > 0:
+                    bank[tip] = int(bank[tip] + bank[tip] * 0.01 * int(temp[1]))
+        elif temp[0] == "DEPOSIT":
+            bank[temp[1]]=bank.get(temp[1], 0) + int(temp[2])
+        elif temp[0] == "WITHDRAW":
+            bank[temp[1]] = bank.get(temp[1], 0) - int(temp[2])
+        elif temp[0] == "BALANCE":
+            print(bank.get(temp[1],"ERROR"))
+        elif temp[0] == "TRANSFER":
+            bank[temp[1]] = bank.get(temp[1], 0) - int(temp[3])
+            bank[temp[2]] = bank.get(temp[2], 0) + int(temp[3])
