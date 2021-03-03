@@ -1,0 +1,11 @@
+way = input().split()
+price = input().split()
+for i in range(0, len(way)):
+    way[i] = int(way[i])
+    price[i] = int(price[i])
+way.sort()
+price.sort(reverse=True)
+ans = 0
+for i in range(0, len(way)):
+    ans += way[i] * price[i]
+print(ans)
