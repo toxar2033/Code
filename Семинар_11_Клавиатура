@@ -1,0 +1,14 @@
+am = int(input())
+task = input().split()
+for i in range (0, am):
+    task[i] = int(task[i])
+am_2 = int(input())
+used = input().split()
+for i in range (0, am_2):
+    task[int(used[i]) - 1] -= 1
+
+for i in range(0, am):
+    if task[i] >= 0:
+        print('NO')
+    else:
+        print('YES')
