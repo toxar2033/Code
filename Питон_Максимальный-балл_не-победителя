@@ -1,0 +1,29 @@
+inp = open("input.txt", 'r', encoding='utf-8').read().split('\n')
+rec_9 = 0
+num_9 = 0
+rec_10 = 0
+num_10 = 0
+rec_11 = 0
+num_11 = 0
+for line in inp:
+    if line != '':
+        a = line.split()
+        if int(a[-2]) == 9:
+            if int(a[-1]) > rec_9:
+                num_9 = rec_9
+                rec_9 = int(a[-1])
+            elif int(a[-1]) < rec_9 and int(a[-1]) > num_9:
+                num_9 = int(a[-1])
+        elif int(a[-2]) == 10:
+            if int(a[-1]) > rec_10:
+                num_10 = rec_10
+                rec_10 = int(a[-1])
+            elif int(a[-1]) < rec_10 and int(a[-1]) > num_10:
+                num_10 = int(a[-1])
+        elif int(a[-2]) == 11:
+            if int(a[-1]) > rec_11:
+                num_11 = rec_11
+                rec_11 = int(a[-1])
+            elif int(a[-1]) < rec_11 and int(a[-1]) > num_11:
+                num_11 = int(a[-1])
+print(str(num_9) + ' ' + str(num_10) + ' ' + str(num_11))
