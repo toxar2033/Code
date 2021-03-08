@@ -1,0 +1,16 @@
+inp = open("input.txt", 'r', encoding='utf-8').read().split('\n')
+ans = dict([])
+max = 0
+keys = []
+for line in inp:
+    if line != '':
+        a = line.split()
+        ans[int(a[-2])] = ans.get(int(a[-2]), 0) + 1
+        keys.append(int(a[-2]))
+        if ans[int(a[-2])] > max:
+            max = ans[int(a[-2])]
+keys.sort()
+keys = set(keys)
+for i in keys:
+    if ans[i] == max:
+        print(i, end=' ')
