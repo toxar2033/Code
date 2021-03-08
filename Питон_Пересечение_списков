@@ -1,0 +1,25 @@
+def Intersection(a, b):
+    lena = len(a)
+    lenb = len(b)
+    if lena > lenb:
+        a, b = b, a
+        lena, lenb = lenb, lena
+    i = 0
+    j = 0
+    while i <= lena:
+        if i == lena:
+            return
+        elif j == lenb:
+            return
+        if a[i] < b[j]:
+            i += 1
+        elif a[i] == b[j]:
+            print(a[i], end=" ")
+            i += 1
+            j += 1
+        else:
+            j += 1
+
+lista = list(map(int, input().split()))
+listb = list(map(int, input().split()))
+Intersection(lista, listb)
