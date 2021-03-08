@@ -1,6 +1,6 @@
 inp = open("input.txt", 'r', encoding='utf-8').read().split('\n')
 rec_9 = 0
-num_9: int = 0
+num_9 = 0
 rec_10 = 0
 num_10 = 0
 rec_11 = 0
