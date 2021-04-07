@@ -1,0 +1,10 @@
+inp = open("input.txt", "r").read()
+task = dict([])
+a = inp.split()
+for i in range(0, len(a), 2):
+    cand = a[i]
+    vot = a[i+1]
+    task[cand] = task.get(cand, 0) + int(vot)
+
+for cand, vot in sorted(task.items()):
+    print(cand, vot)
