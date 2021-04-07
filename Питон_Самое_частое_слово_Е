@@ -1,0 +1,9 @@
+inp = open("input.txt", "r").read()
+task = dict([])
+a = inp.split()
+for word in a:
+    task[word] = task.get(word, 0) + 1
+
+maxi = max(task.values())
+ans = [word for word, cou in task.items() if cou == maxi]
+print(min(ans))
