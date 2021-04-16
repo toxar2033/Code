@@ -1,0 +1,70 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+vector<bool>used;
+vector<vector<int>> info;
+vector<int>coun;
+int ans = 0, n, co = 0;
+
+void change(int v,int now){
+    if (now > ans)
+        ans = now;
+    for(int c: info[v]){
+        if(!used[c]){
+            used[c] = true;
+            change(c, now + 1);
+        }
+    }
+    coun.push_back(now);
+}
+
+int main()
+{
+    cin >> n;
+    info = vector<vector<int>>(n+1);
+    for(int i = 0; i < n-1; i++){
+        int x, y;
+        cin >> x >> y;
+        info[x].push_back(y);
+        info[y].push_back(x);
+        if((x == 1)||(y == 1))
+            co++;
+    }
+
+    used = vector<bool> (n + 1, false);
+    used[1] = true;
+    change(1, 1);
+
+    if(co == 1){
+        int maxi = 0, am = 1;
+        for(int a: coun){
+            if (maxi < a){
+                maxi = a;
+                am = 1;
+            }else if (maxi == a)
+                    am++;
+        }
+        cout << maxi << endl;
+    } else{
+        int maxi_1 = 0, maxi_2 = 0, am=1;
+        for(int a: coun){
+            if (maxi_1 < a){
+                maxi_1 = a;
+                am = 1;
+            }else if (maxi_2 < a){
+                maxi_2 = a;
+            } else if (maxi_1 == a){
+                am++;
+            }
+        }
+        if (am > 1)
+            cout << maxi_1 + maxi_1 - 1 << endl;
+        else
+            cout << maxi_1 + maxi_2 - 1 << endl;
+    }
+
+
+    return 0;
+}
