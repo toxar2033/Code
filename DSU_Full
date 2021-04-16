@@ -1,0 +1,83 @@
+#include <iostream>
+#include <vector>
+#include <string>
+using namespace std;
+
+vector<int> parent, Rank;
+string comm = "";
+
+void make_set (int v){
+    parent[v] = v;
+    Rank[v] = 0;
+}
+
+int find_set (int v){
+    if (v == parent[v])
+        return v;
+    return parent[v] = find_set (parent[v]);
+}
+
+void union_sets (int a, int b){
+    a = find_set(a);
+    b = find_set(b);
+    if (a != b){
+        if (Rank[a] < Rank[b])
+            swap (a,b);
+        parent[b] = a;
+        if (Rank[a] == Rank[b])
+            ++Rank[a];
+    }
+}
+
+
+int main()
+{
+    int n;
+    cout << "Input the amount of points: ";
+    cin >> n;
+    parent = vector<int> (n + 1);
+    for (int i = 0; i <= n; i++)
+        parent[i] = 0;
+    Rank = vector<int> (n + 1, 0);
+
+    while(comm != "exit"){
+        cout << "Command Input: ";
+        cin >> comm;
+
+        if (comm == "make_set"){
+            cout << "Input the point: ";
+            int a;
+            cin >> a;
+            make_set(a);
+            cout << "Done!" << '\n';
+        }
+
+        if (comm == "union_sets"){
+                int a, b;
+            cout << "Input the first point: ";
+            cin >> a;
+            cout << "Input the second point: ";
+            cin >> b;
+            union_sets(a, b);
+            cout << "Done!" << '\n';
+        }
+
+        if (comm == "find_set"){
+            cout << "Input the point: ";
+            int a;
+            cin >> a;
+            a = find_set(a);
+            cout << "Head of set: " << a << '\n';
+        }
+
+        if (comm == "print_parents"){
+            for(int i = 1; i <= n; i++){
+                cout << i <<" : "<< parent[i]<< '\n';
+            }
+        }
+
+    }
+    cout << "See you!";
+    return 0;
+}
+
