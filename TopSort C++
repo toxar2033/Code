@@ -1,0 +1,60 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+vector<bool> used, used_tmp;
+vector<vector<int>> a;
+vector<int> ans;
+int n, m;
+
+void dfs(int v) {
+    used[v] = true;
+    used_tmp[v] = true;
+    for (int i : a[v]) {
+        if (!used_tmp[i]) {
+            if(!used[i]){
+                dfs(i);
+                used_tmp[i] = false;
+            }
+        }else{
+            cout << "-1";
+            exit(0);
+        }
+    }
+    ans.push_back(v);
+}
+
+void topsort(){
+    for (int i = 0; i<n; i++){
+        used[i] = false;
+    }
+    ans.clear();
+    for (int i = 0; i<n; i++){
+        if (!used[i]){
+            used_tmp = vector<bool> (n, false);
+            dfs(i);
+        }
+    }
+    reverse (ans.begin(), ans.end());
+}
+
+int main(){
+    cin >> n >> m;
+    used = vector<bool> (n, false);
+    a = vector<vector<int>>(n);
+
+    for (int i = 0; i < n; i++){
+        int x, y;
+        cin >> x >> y;
+        a[x-1].push_back(y-1);
+    }
+
+    topsort();
+
+    for (int i = 0; i < n; i++){
+        cout << ans[i] + 1 << " ";
+    }
+
+}
