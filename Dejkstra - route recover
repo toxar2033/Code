@@ -1,0 +1,58 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+const int INF = 100000000;
+
+int main() {
+    int n, s, f;
+    cin >> n >> s >> f;
+    s--; f--;
+
+    vector<vector<pair<int, int>>> g(n);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            int curr;
+            cin >> curr;
+            if (curr >= 0) {
+                g[i].push_back({j, curr});
+            }
+        }
+    }
+
+    vector<int> d(n, INF), used(n, 0), p(n, -1);//
+    p[s] = s;//
+    d[s] = 0;
+    for (int i = 0; i < n; i++) {
+        int v = -1;
+        for (int j = 0; j < n; j++) {
+            if (used[j] == 0 && (v == -1 || d[j] < d[v])) {
+                v = j;
+            }
+        }
+        used[v] = 1;
+
+        for (auto curr : g[v]) {
+            int to = curr.first, w = curr.second;
+            if (d[v] + w < d[to]) {
+                d[to] = d[v] + w;
+                p[to] = v;//
+            }
+        }
+    }
+
+    if (d[f] == INF) {
+        cout << -1;
+        return 0;
+    }
+
+    vector<int> path;
+    for (int v = f; v != s; v = p[v]) {
+        path.push_back(v);
+
+    }
+    path.push_back(s);
+    reverse(path.begin(), path.end());
+    for (auto curr : path) cout << curr+1 << ' ';
+}
