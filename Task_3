@@ -1,0 +1,30 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+int main(){
+    long a,b;
+    double c,d;
+    cin >> a;
+    if (a==0)
+        cout<<"0";
+    else{
+        b = 2;
+        d = a;
+        if (a>1){
+            while ((a>1)&(b*b<=d)){
+                c = a % b;
+                if(c==0){
+                    cout << b<<' ';
+                    a /= b;
+                } else b++;
+            }
+            if (b * b > a){
+                if (!(a == 1))
+                    cout << a;
+            }
+            else cout <<b;
+        } else cout << "1";
+    }
+    return 0;
+}
