@@ -1,0 +1,20 @@
+def chess_queen(n,m,i,j):
+    task = np.zeros((n, m))
+    for x in range(0,m):
+        task[i,x] = 1
+    for x in range(0,n):
+        task[x,j] = 1
+    for x in range(0,m):
+        for y in range(0,n):
+            if abs(i-y) == abs(j-x) and i-y != 0:
+                task[y,x] = 1
+    task[i,j] = 2
+    print(task)
+
+inp = input()
+n, m, i, j = inp.split()
+n = int(n)
+m = int(m)
+i = int(i)
+j = int(j)
+chess_queen(n,m,i,j)
