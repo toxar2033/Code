@@ -1,0 +1,14 @@
+n = 3
+
+A = np.zeros((n,n))
+B = np.array(range(1,n+1))
+for i in range(n):
+    if i != n - 1:
+        A[i,i] = 1
+        A[i,i+1] = 1
+    else:
+        A[i,i] = 1
+        A[i,0] = 1
+Al = np.linalg.inv(A)
+ans = Al.dot(B)
+print(ans)
