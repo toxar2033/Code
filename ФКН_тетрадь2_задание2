@@ -1,0 +1,21 @@
+P1 = [1, 1]
+P2 = [3, 2]
+P3 = [2, 3]
+
+K1 = line_by_points(P1,P2)
+K2 = line_by_points(P1,P3)
+K3 = line_by_points(P2,P3)
+print(K1,K2,K3, sep = '\n')
+
+x = np.linspace(-5,5)
+y1 = K1[0]*x + K1[1]
+y2 = K2[0]*x + K2[1]
+y3 = K3[0]*x + K3[1]
+plt.plot(x,y1) 
+plt.plot(x,y2)
+plt.plot(x,y3)
+plt.plot(*P1,'ro') 
+plt.plot(*P2,'go') 
+plt.plot(*P3,'bo') 
+plt.axis([-5, 5, -5, 5])
+plt.grid(True)
